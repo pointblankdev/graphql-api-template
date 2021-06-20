@@ -9,12 +9,13 @@
 
 #### This starter includes:
 
-- express api for running locally
-- lambda when run on aws
-- graphql interface with playground
-- apollo federated schema
-- jest for testing
-- dynamite for database client
+- `apollo-server` when run locally
+- `apollo-server-lambda` when run on AWS
+- `@apollo/federation` schema pre-configured
+- `@pointblankdev/dynamite` for DynamoDB database client
+- `serverless` for infrastructure-as-code to AWS
+- `jest` setup for testing with recommended extentions
+- Github Actions for CI/CD
 
 <br />
 
