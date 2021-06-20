@@ -29,7 +29,7 @@ exports.handler = server.createHandler({
 });
 
 // For local development
-if (process.env.LAMBDA_LOCAL_DEVELOPMENT == "1") {
+if (!process.env.AWS_REGION) {
   const serverLocal = new ApolloServerLocal({ typeDefs, resolvers });
   serverLocal.listen().then(({ url }) => {
     console.log(`Server ready at ${url}`);
