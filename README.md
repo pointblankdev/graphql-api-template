@@ -1,7 +1,7 @@
 # graphql-api-template
 
 <a href="https://gitmoji.dev" >
-  <img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square" alt="Gitmoji" style="border-radius: 3px">
+  <img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square" alt="Gitmoji">
 </a>
 
 This project includes:
