@@ -14,7 +14,7 @@
 - `@apollo/federation` schema pre-configured
 - `@pointblankdev/dynamite` for DynamoDB database client
 - `serverless` for infrastructure-as-code to AWS
-- `jest` setup for testing with recommended extentions
+- `jest` for testing with recommended extentions
 - Github Actions for CI/CD
 
 <br />
