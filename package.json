@@ -1,21 +1,27 @@
 {
   "name": "graphql-api-template",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.0",
+  "description": "A lambda starter template",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --runInBand"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@apollo/federation": "^0.25.1",
+    "@pointblankdev/dynamite": "^0.2.18",
+    "@pointblankdev/lambda-auth": "^0.0.1",
     "apollo-server": "^2.21.2",
     "apollo-server-lambda": "^2.21.2",
+    "dotenv": "^10.0.0",
     "graphql": "^15.5.0",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "jest": "^27.0.4",
     "nodemon": "^2.0.7"
   }
 }

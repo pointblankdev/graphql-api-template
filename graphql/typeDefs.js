@@ -3,19 +3,19 @@ const { gql } = require("apollo-server-lambda");
 const typeDefs = gql`
   # Models
   type Post {
-    id: String
+    id: String!
   }
 
   # Operations
   type Query {
     listPosts: [Post]
-    getPost(id: ID): Post
+    getPost(id: ID!): Post
   }
 
   type Mutation {
-    createPost(id: ID): Post
-    updatePost(id: ID): Post
-    deletePost(id: ID): Post
+    createPost(id: ID!, title: String, text: String): Post
+    updatePost(id: ID!, title: String, text: String): Post
+    deletePost(id: ID!): Post
   }
 `;
 

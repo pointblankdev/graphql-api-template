@@ -1,37 +1,37 @@
+require("dotenv").config();
 const { ApolloServer } = require("apollo-server-lambda");
 const { ApolloServer: ApolloServerLocal } = require("apollo-server");
-const typeDefs = require("./typeDefs");
-const resolvers = require("./resolvers");
+const schema = require("./graphql/federation");
+const { verify } = require("@pointblankdev/lambda-auth");
 
-// In the most basic sense, the ApolloServer can be started
-// by passing type definitions (typeDefs) and the resolvers
-// responsible for fetching the data for those types.
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  context: ({ event, context }) => ({
-    headers: event.headers,
-    functionName: context.functionName,
-    event,
-    context,
-  }),
-  playground: {
-    endpoint: "/dev/graphql",
-  },
-  introspection: true,
-});
+const environment = process.env.ENV;
 
-exports.handler = server.createHandler({
-  cors: {
-    origin: "*",
-    credentials: false,
-  },
-});
-
-// For local development
-if (!process.env.AWS_REGION) {
-  const serverLocal = new ApolloServerLocal({ typeDefs, resolvers });
-  serverLocal.listen().then(({ url }) => {
-    console.log(`Server ready at ${url}`);
+if (environment === "local") {
+  // Local development
+  const server = new ApolloServerLocal({ schema });
+  server.listen().then(({ url }) => {
+    console.log(`🚀 Server ready at ${url}`);
+  });
+} else {
+  // AWS Lambda
+  const server = new ApolloServer({
+    schema,
+    context: ({ event, context }) => ({
+      headers: event.headers,
+      functionName: context.functionName,
+      event,
+      context,
+      user: verify(event.headers.Authorization),
+    }),
+    playground: {
+      endpoint: `/${environment}/graphql`,
+    },
+    introspection: true,
+  });
+  exports.handler = server.createHandler({
+    cors: {
+      origin: "*",
+      credentials: false,
+    },
   });
 }

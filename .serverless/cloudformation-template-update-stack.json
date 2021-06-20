@@ -86,37 +86,23 @@
             {
               "Effect": "Allow",
               "Principal": {
-                "Service": [
-                  "lambda.amazonaws.com"
-                ]
+                "Service": ["lambda.amazonaws.com"]
               },
-              "Action": [
-                "sts:AssumeRole"
-              ]
+              "Action": ["sts:AssumeRole"]
             }
           ]
         },
         "Policies": [
           {
             "PolicyName": {
-              "Fn::Join": [
-                "-",
-                [
-                  "apollo-lambda",
-                  "dev",
-                  "lambda"
-                ]
-              ]
+              "Fn::Join": ["-", ["apollo-lambda", "dev", "lambda"]]
             },
             "PolicyDocument": {
               "Version": "2012-10-17",
               "Statement": [
                 {
                   "Effect": "Allow",
-                  "Action": [
-                    "logs:CreateLogStream",
-                    "logs:CreateLogGroup"
-                  ],
+                  "Action": ["logs:CreateLogStream", "logs:CreateLogGroup"],
                   "Resource": [
                     {
                       "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/apollo-lambda-dev*:*"
@@ -125,9 +111,7 @@
                 },
                 {
                   "Effect": "Allow",
-                  "Action": [
-                    "logs:PutLogEvents"
-                  ],
+                  "Action": ["logs:PutLogEvents"],
                   "Resource": [
                     {
                       "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/apollo-lambda-dev*:*:*"
@@ -164,20 +148,15 @@
           "S3Key": "serverless/apollo-lambda/dev/1616975226047-2021-03-28T23:47:06.047Z/apollo-lambda.zip"
         },
         "Handler": "index.handler",
-        "Runtime": "nodejs12.x",
+        "Runtime": "nodejs14.x",
         "FunctionName": "apollo-lambda-dev-graphql",
         "MemorySize": 1024,
-        "Timeout": 6,
+        "Timeout": 30,
         "Role": {
-          "Fn::GetAtt": [
-            "IamRoleLambdaExecution",
-            "Arn"
-          ]
+          "Fn::GetAtt": ["IamRoleLambdaExecution", "Arn"]
         }
       },
-      "DependsOn": [
-        "GraphqlLogGroup"
-      ]
+      "DependsOn": ["GraphqlLogGroup"]
     },
     "GraphqlLambdaVersionR1iTZq4Cmtcqk0w4PB4GLhUjQluAuUhQ3vupTT6tn10": {
       "Type": "AWS::Lambda::Version",
@@ -194,9 +173,7 @@
       "Properties": {
         "Name": "dev-apollo-lambda",
         "EndpointConfiguration": {
-          "Types": [
-            "EDGE"
-          ]
+          "Types": ["EDGE"]
         },
         "Policy": ""
       }
@@ -205,10 +182,7 @@
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Fn::GetAtt": [
-            "ApiGatewayRestApi",
-            "RootResourceId"
-          ]
+          "Fn::GetAtt": ["ApiGatewayRestApi", "RootResourceId"]
         },
         "PathPart": "graphql",
         "RestApiId": {
@@ -291,10 +265,7 @@
                 },
                 ":lambda:path/2015-03-31/functions/",
                 {
-                  "Fn::GetAtt": [
-                    "GraphqlLambdaFunction",
-                    "Arn"
-                  ]
+                  "Fn::GetAtt": ["GraphqlLambdaFunction", "Arn"]
                 },
                 "/invocations"
               ]
@@ -334,10 +305,7 @@
                 },
                 ":lambda:path/2015-03-31/functions/",
                 {
-                  "Fn::GetAtt": [
-                    "GraphqlLambdaFunction",
-                    "Arn"
-                  ]
+                  "Fn::GetAtt": ["GraphqlLambdaFunction", "Arn"]
                 },
                 "/invocations"
               ]
@@ -355,20 +323,13 @@
         },
         "StageName": "dev"
       },
-      "DependsOn": [
-        "ApiGatewayMethodGraphqlOptions",
-        "ApiGatewayMethodGraphqlPost",
-        "ApiGatewayMethodGraphqlGet"
-      ]
+      "DependsOn": ["ApiGatewayMethodGraphqlOptions", "ApiGatewayMethodGraphqlPost", "ApiGatewayMethodGraphqlGet"]
     },
     "GraphqlLambdaPermissionApiGateway": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
         "FunctionName": {
-          "Fn::GetAtt": [
-            "GraphqlLambdaFunction",
-            "Arn"
-          ]
+          "Fn::GetAtt": ["GraphqlLambdaFunction", "Arn"]
         },
         "Action": "lambda:InvokeFunction",
         "Principal": "apigateway.amazonaws.com",
