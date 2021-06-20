@@ -20,14 +20,10 @@
 
 ## Getting Started
 
-<br />
-
 ### Amazon Web Services
 
 - First, setup up your AWS access by installing the [AWS CLI tools](https://aws.amazon.com/cli/).
 - After that's complete, run `aws configure` and input your AWS credentials.
-
-<br />
 
 ### Database
 
@@ -35,8 +31,6 @@
 - Pick any table name and set your primary key to `id`.
 - Uncheck "Use default settings" and select `On-demand` for Read/write capacity mode.
 - Leave all other settings unchanged.
-
-<br />
 
 ### Environment Variables
 
