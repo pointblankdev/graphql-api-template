@@ -19,8 +19,21 @@ This project includes:
 ### Database
 
 - Sign in to AWS and create a DynamoDB table.
-- Make sure you set the primary key to `id`, uncheck "default settings" and select `ON-DEMAND`/`PAY-PER-REQUEST` billing.
+- Pick any table name and set your primary key to `id`.
+- Uncheck "Use default settings" and select `On-demand` for Read/write capacity mode.
+- Leave all other settings unchanged.
 
 ### Environment Variables
 
+#### Local development
+
 - Rename `example.env` to `.env`.
+- Set `DYNAMITE_TABLE` to the table name you selected for the database.
+
+#### Github Actions
+
+- Set AWS credentials as secrets in Github.
+
+#### AWS Lambda
+
+- Set `DYNAMITE_TABLE` to the table name you selected for the database.
