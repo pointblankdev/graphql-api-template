@@ -11,14 +11,16 @@ This project includes:
 
 ## Setup Steps
 
-First, setup up your AWS access by installing the AWS CLI.
+### Amazon Web Services
 
-Google "aws cli" and click the first link.
+- First, setup up your AWS access by installing the [AWS CLI tools](https://aws.amazon.com/cli/).
+- After that's complete, run `aws configure` and input your AWS credentials.
 
-After that's complete, run `aws configure` and input your AWS credentials.
+### Database
 
-Sign in to AWS and create a DynamoDB table.
+- Sign in to AWS and create a DynamoDB table.
+- Make sure you set the primary key to `id`, uncheck "default settings" and select `ON-DEMAND`/`PAY-PER-REQUEST` billing.
 
-Make sure you set the primary key to `id`, uncheck "default settings" and select `ON-DEMAND`/`PAY-PER-REQUEST` billing.
+### Environment Variables
 
-Rename `example.env` to `.env`.
+- Rename `example.env` to `.env`.
