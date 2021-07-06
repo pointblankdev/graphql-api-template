@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: "14.x"
       - name: ⚙️ Install dependencies
-        run: yarn global add serverless && yarn install --production
+        run: npm install -g serverless && yarn install --production
       - name: 🔑 Configure access credentials
         run: sls config credentials --provider aws --key ${{ secrets.AWS_KEY }} --secret ${{ secrets.AWS_SECRET }}
       - name: 🚀 Deploy microservice
