@@ -48,3 +48,4 @@
 
 - Set `DYNAMITE_TABLE` to the table name you selected for the database.
 - Set `ENV` to `dev`.
+- Grant the Lambda IAM permission `dynamodb:*`.
