@@ -21,6 +21,10 @@
 
 ## Getting Started
 
+### Rename the project
+
+- Find and replace all instances of `graphql-api-template` with whatever your want.
+
 ### Amazon Web Services
 
 - First, setup up your AWS access by installing the [AWS CLI tools](https://aws.amazon.com/cli/).
@@ -46,6 +50,11 @@
 
 #### AWS Lambda
 
+Environment Variables
+
 - Set `DYNAMITE_TABLE` to the table name you selected for the database.
 - Set `ENV` to `dev`.
-- Grant the Lambda IAM permission `dynamodb:*`.
+
+IAM Permissions
+
+- Grant the Lambda IAM policy for `dynamodb:*`.
