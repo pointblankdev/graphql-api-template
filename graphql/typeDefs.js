@@ -13,7 +13,7 @@ const typeDefs = gql`
   # }
 
   type Mutation {
-    createPost(id: ID!, title: String, text: String): String
+    createPost(title: String, text: String): String
     # updatePost(id: ID!, title: String, text: String): String
     # deletePost(id: ID!): String
   }
