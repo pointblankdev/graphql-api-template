@@ -7,15 +7,15 @@ const typeDefs = gql`
   }
 
   # Operations
-  type Query {
-    listPosts: [Post]
-    getPost(id: ID!): Post
-  }
+  # type Query {
+  #   listPosts: [Post]
+  #   getPost(id: ID!): Post
+  # }
 
   type Mutation {
-    createPost(id: ID!, title: String, text: String): Post
-    updatePost(id: ID!, title: String, text: String): Post
-    deletePost(id: ID!): Post
+    createPost(id: ID!, title: String, text: String): String
+    # updatePost(id: ID!, title: String, text: String): String
+    # deletePost(id: ID!): String
   }
 `;
 
