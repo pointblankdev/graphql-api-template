@@ -1,4 +1,10 @@
-const { listPosts, getPost, createPost, updatePost, deletePost } = require("../lib/Posts");
+import {
+  listPosts,
+  getPost,
+  createPost,
+  updatePost,
+  deletePost,
+} from "../lib/Posts";
 
 const resolvers = {
   Query: {
