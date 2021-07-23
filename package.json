@@ -12,7 +12,7 @@
   "dependencies": {
     "@apollo/federation": "^0.25.1",
     "@pointblankdev/dynamite": "^1.0.1",
-    "@pointblankdev/lambda-auth": "^0.0.1",
+    "@pointblankdev/lambda-auth": "^0.1.0",
     "apollo-server": "^2.21.2",
     "apollo-server-lambda": "^2.21.2",
     "dotenv": "^10.0.0",
