@@ -1,28 +1,20 @@
-// import {
-//   listPosts,
-//   getPost,
-//   createPost,
-//   updatePost,
-//   deletePost,
-// } from "../lib/Posts";
-
 const {
-  // listPosts,
-  // getPost,
+  listPosts,
+  getPost,
   createPost,
-  // updatePost,
-  // deletePost,
+  updatePost,
+  deletePost,
 } = require("../lib/Posts");
 
 const resolvers = {
   Query: {
-    // listPosts,
-    // getPost,
+    listPosts,
+    getPost,
   },
   Mutation: {
     createPost,
-    // updatePost,
-    // deletePost,
+    updatePost,
+    deletePost,
   },
 };
 
