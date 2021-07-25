@@ -6,7 +6,7 @@ const { verify } = require("@pointblankdev/lambda-auth");
 
 const environment = process.env.ENV;
 
-if (environment === "local") {
+if (environment === "dev") {
   // Local development
   const server = new ApolloServerLocal({ schema });
   server.listen().then(({ url }) => {
