@@ -3,7 +3,7 @@ const { gql } = require("apollo-server-lambda");
 const typeDefs = gql`
   # Models
   type Post {
-    id: String!
+    id: ID!
     title: String
     text: String
   }
