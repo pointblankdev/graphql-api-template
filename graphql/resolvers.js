@@ -4,7 +4,7 @@ const {
   createPost,
   updatePost,
   deletePost,
-} = require("../lib/Posts");
+} = require("../lib/Post");
 
 const resolvers = {
   Query: {
