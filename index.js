@@ -21,7 +21,7 @@ if (environment === "local") {
       functionName: context.functionName,
       event,
       context,
-      user: verify(event.headers.Authorization),
+      user: verify(event),
     }),
     playground: {
       endpoint: `/${environment}/graphql`,
